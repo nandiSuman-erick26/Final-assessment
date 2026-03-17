@@ -11,3 +11,8 @@ export interface CartState {
   history: CartItem[][];
   appliedCoupon: string | null;
 }
+
+export interface CouponDef {
+  discount: number;      // percentage
+  minCartValue: number;  // minimum subtotal required to use this coupon
+}

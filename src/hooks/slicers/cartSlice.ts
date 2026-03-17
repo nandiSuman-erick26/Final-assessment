@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartState, CartItem } from "@/typeScript/interfaces/cart.interface";
+import { CartState, CartItem, CouponDef } from "@/typeScript/interfaces/cart.interface";
 
 const initialState: CartState = {
   items: [],
@@ -7,11 +7,7 @@ const initialState: CartState = {
   appliedCoupon: null,
 };
 
-// Coupon definition type
-export interface CouponDef {
-  discount: number;      // percentage
-  minCartValue: number;  // minimum subtotal required to use this coupon
-}
+
 
 // Valid coupons map (Code -> CouponDef)
 export const VALID_COUPONS: Record<string, CouponDef> = {
@@ -20,7 +16,7 @@ export const VALID_COUPONS: Record<string, CouponDef> = {
   HALFPRICE: { discount: 50, minCartValue: 1000 }, // unlock at ₹1000
 };
 
-// Threshold discount (automatic — if subtotal > THRESHOLD_AMOUNT, deduct THRESHOLD_DISCOUNT_PERCENTAGE%)
+
 export const THRESHOLD_AMOUNT = 500;
 export const THRESHOLD_DISCOUNT_PERCENTAGE = 10;
 
@@ -34,7 +30,7 @@ export const cartSlice = createSlice({
       state.appliedCoupon = action.payload.appliedCoupon || null;
     },
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      // Save deep copy to history for undo
+  
       state.history.push(JSON.parse(JSON.stringify(state.items)));
 
       const existingItem = state.items.find((item) => item.name === action.payload.name);
@@ -45,7 +41,7 @@ export const cartSlice = createSlice({
       }
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
-      // action.payload is the item name
+     
       state.history.push(JSON.parse(JSON.stringify(state.items)));
       state.items = state.items.filter((item) => item.name !== action.payload);
     },
