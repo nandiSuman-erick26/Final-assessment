@@ -2,9 +2,9 @@ import { configureStore, Middleware } from "@reduxjs/toolkit";
 import cartReducer from "../slicers/cartSlice";
 
 // Middleware to sync cart state to localStorage automatically
-const localStorageMiddleware: Middleware = (storeAPI) => (next) => (action) => {
+const localStorageMiddleware: Middleware = (storePreserve) => (next) => (action) => {
   const result = next(action);
-  const state = storeAPI.getState();
+  const state = storePreserve.getState();
 
   if (typeof window !== "undefined") {
    
