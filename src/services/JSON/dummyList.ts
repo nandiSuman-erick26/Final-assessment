@@ -4,7 +4,7 @@ import {
   Citrus,
   Cherry,
   Grape,
-  Carrot,
+  Bean,
   Salad,
   Leaf,
   Sprout,
@@ -22,6 +22,8 @@ import {
   GlassWater,
   Beer,
   Nut,
+  Carrot,
+  Dessert,
 } from "lucide-react";
 
 import { Product } from "@/typeScript/interfaces/product.interface";
@@ -35,10 +37,10 @@ const groceryItems: Product[] = [
   { name: "Papaya", category: "Fruits", price: 60, unit: "piece", icon: Grape },
 
   // Vegetables
-  { name: "Potato", category: "Vegetables", price: 30, unit: "kg", icon: Carrot },
+  { name: "Potato", category: "Vegetables", price: 30, unit: "kg", icon: Bean },
   { name: "Tomato", category: "Vegetables", price: 40, unit: "kg", icon: Salad },
-  { name: "Onion", category: "Vegetables", price: 35, unit: "kg", icon: Leaf },
-  { name: "Carrot", category: "Vegetables", price: 55, unit: "kg", icon: Sprout },
+  { name: "Onion", category: "Vegetables", price: 35, unit: "kg", icon: Dessert },
+  { name: "Carrot", category: "Vegetables", price: 55, unit: "kg", icon: Carrot },
   { name: "Spinach", category: "Vegetables", price: 25, unit: "bunch", icon: Flower2 },
 
   // Dairy

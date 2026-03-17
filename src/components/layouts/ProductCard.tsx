@@ -28,7 +28,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const cartItem = cartItems.find((item) => item.name === product.name);
 
   const handleAdd = () => {
-    // Destructure out `icon` — React components are non-serializable and must not go into Redux
+   
     const { icon: _icon, ...serializableProduct } = product;
     dispatch(addToCart({ ...serializableProduct, quantity: 1 }));
     toast.success(`${product.name} added to cart!`);
