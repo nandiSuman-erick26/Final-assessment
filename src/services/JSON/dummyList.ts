@@ -7,7 +7,7 @@ import {
   Bean,
   Salad,
   Leaf,
-  Sprout,
+
   Flower2,
   Milk,
   IceCream,
